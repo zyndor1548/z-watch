@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Z-Watch - Website Monitoring</title>
+	<link rel="stylesheet" href="styles.css">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+	<div class="container">
+		<!-- Header -->
+		<header class="header">
+			<div class="logo">
+				<span class="logo-icon">📡</span>
+				<h1>Z-Watch</h1>
+			</div>
+			<div id="user-info" class="user-info hidden">
+				<span id="username-display"></span>
+				<button id="logout-btn" class="btn btn-secondary">Logout</button>
+			</div>
+		</header>
+
+		<!-- Auth Section -->
+		<section id="auth-section" class="section">
+			<div class="auth-container">
+				<div class="auth-card">
+					<h2>Welcome to Z-Watch</h2>
+					<p class="subtitle">Monitor your websites uptime and performance</p>
+
+					<div class="tabs">
+						<button class="tab active" data-tab="login">Login</button>
+						<button class="tab" data-tab="register">Register</button>
+					</div>
+
+					<form id="login-form" class="auth-form">
+						<div class="form-group">
+							<label>Username</label>
+							<input type="text" id="login-username" required>
+						</div>
+						<div class="form-group">
+							<label>Password</label>
+							<input type="password" id="login-password" required>
+						</div>
+						<button type="submit" class="btn btn-primary">Login</button>
+						<div id="login-message" class="message"></div>
+					</form>
+
+					<form id="register-form" class="auth-form hidden">
+						<div class="form-group">
+							<label>Username</label>
+							<input type="text" id="register-username" required>
+						</div>
+						<div class="form-group">
+							<label>Password</label>
+							<input type="password" id="register-password" required>
+						</div>
+						<button type="submit" class="btn btn-primary">Register</button>
+						<div id="register-message" class="message"></div>
+					</form>
+				</div>
+			</div>
+		</section>
+
+		<!-- Dashboard Section -->
+		<section id="dashboard-section" class="section hidden">
+			<!-- Quick Check -->
+			<div class="card">
+				<h3>Quick URL Check</h3>
+				<form id="quick-check-form" class="quick-check-form">
+					<input type="url" id="check-url" placeholder="https://example.com" required>
+					<button type="submit" class="btn btn-primary">Check</button>
+				</form>
+				<div id="check-result" class="check-result"></div>
+			</div>
+
+			<!-- Add Site to Monitor -->
+			<div class="card">
+				<h3>Add Site to Monitor</h3>
+				<form id="add-site-form" class="add-site-form">
+					<input type="url" id="site-url" placeholder="https://example.com" required>
+					<button type="submit" class="btn btn-primary">Add Site</button>
+				</form>
+				<div id="add-site-message" class="message"></div>
+			</div>
+
+			<!-- Monitoring Logs -->
+			<div class="card">
+				<div class="card-header">
+					<h3>Monitoring Logs</h3>
+					<button id="refresh-logs" class="btn btn-secondary">Refresh</button>
+				</div>
+				<div id="logs-container" class="logs-container">
+					<p class="empty-state">No logs yet. Add a site to start monitoring.</p>
+				</div>
+			</div>
+		</section>
+	</div>
+
+	<!-- Tooltip for cube hover -->
+	<div id="cube-tooltip" class="cube-tooltip"></div>
+
+	<script src="script.js"></script>
+</body>
+
+</html>
